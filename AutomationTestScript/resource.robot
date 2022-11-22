@@ -4,6 +4,7 @@ Documentation    QuatroGrocerFirstTest
 
 *** Variables ***
 ${HomeURL}    https://www.quatrogrocer.one/
+${randomURL}    https://www.google.com
 
 *** Keywords ***
 Navigate To Google
