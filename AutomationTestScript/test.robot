@@ -7,3 +7,4 @@ Resource    ./resource.robot
 Open QuatroGrocer & Verify QuatroGrocer
     Navigate To Google
     Verify Page Contains
+    
