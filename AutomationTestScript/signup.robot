@@ -7,5 +7,7 @@ Test Setup         Open Application
 Test Teardown      Close Application
 
 *** Test Cases ***
-Open QuatroGrocer & Verify QuatroGrocer
-    Verify Page Contains
+Open QuatroGrocer & Verify QuatroGrocer Sign Up
+    Redirect Unregistered User To Login
+    Create Account
+    Verify Sign Up Page Contains
