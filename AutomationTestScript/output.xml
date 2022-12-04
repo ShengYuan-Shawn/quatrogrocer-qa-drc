@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.9.12 on linux)" generated="20221201 02:15:17.300" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.9.12 on linux)" generated="20221204 04:11:52.269" rpa="false" schemaversion="3">
 <suite id="s1" name="Test" source="/home/lim/quatrogrocer-qa-drc/AutomationTestScript/test.robot">
 <test id="s1-t1" name="Open QuatroGrocer &amp; Verify QuatroGrocer" line="11">
 <kw name="Open Application" library="resource" type="SETUP">
@@ -7,50 +7,150 @@
 <arg>${ApplicationURL}</arg>
 <arg>${Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20221201 02:15:17.397" level="INFO">Opening browser 'Chrome' to base url 'https://www.quatrogrocer.one/'.</msg>
-<status status="PASS" starttime="20221201 02:15:17.397" endtime="20221201 02:15:18.585"/>
+<msg timestamp="20221204 04:11:52.357" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/'.</msg>
+<status status="PASS" starttime="20221204 04:11:52.357" endtime="20221204 04:11:59.520"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20221201 02:15:18.586" endtime="20221201 02:15:18.689"/>
+<status status="PASS" starttime="20221204 04:11:59.520" endtime="20221204 04:11:59.630"/>
 </kw>
-<status status="PASS" starttime="20221201 02:15:17.397" endtime="20221201 02:15:18.689"/>
+<status status="PASS" starttime="20221204 04:11:52.357" endtime="20221204 04:11:59.631"/>
 </kw>
-<kw name="Verify Page Contains" library="resource">
+<kw name="Create Quatro Grocer Account" library="resource">
 <kw name="Title Should Be" library="SeleniumLibrary">
-<arg>QuatroGrocer Shopping App</arg>
+<arg>${ApplicationTitle}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20221201 02:15:18.698" level="INFO">Page title is 'QuatroGrocer Shopping App'.</msg>
-<status status="PASS" starttime="20221201 02:15:18.690" endtime="20221201 02:15:18.698"/>
+<msg timestamp="20221204 04:11:59.647" level="INFO">Page title is 'QuatroGrocer Shopping App'.</msg>
+<status status="PASS" starttime="20221204 04:11:59.633" endtime="20221204 04:11:59.647"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221204 04:11:59.647" endtime="20221204 04:11:59.676"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>//*[@class="home-header-content"]//button</arg>
+<arg>${profileIcon}</arg>
+<arg>30</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20221201 02:15:18.699" endtime="20221201 02:15:18.807"/>
+<status status="PASS" starttime="20221204 04:11:59.676" endtime="20221204 04:11:59.702"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>//*[@class="home-header-content"]//button</arg>
+<arg>${profileIcon}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221201 02:15:18.808" level="INFO">Clicking element '//*[@class="home-header-content"]//button'.</msg>
-<status status="PASS" starttime="20221201 02:15:18.807" endtime="20221201 02:15:18.880"/>
+<msg timestamp="20221204 04:11:59.705" level="INFO">Clicking element '//*[@data-testid="AccountCircleOutlinedIcon"]'.</msg>
+<status status="PASS" starttime="20221204 04:11:59.703" endtime="20221204 04:11:59.837"/>
 </kw>
 <kw name="Wait Until Location Is" library="SeleniumLibrary">
-<arg>https://www.quatrogrocer.one/marketplace</arg>
+<arg>${LoginPageURL}</arg>
+<arg>30</arg>
 <doc>Waits until the current URL is ``expected``.</doc>
-<status status="PASS" starttime="20221201 02:15:18.880" endtime="20221201 02:15:18.885"/>
+<status status="PASS" starttime="20221204 04:11:59.837" endtime="20221204 04:11:59.855"/>
 </kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>//div[@class="product-section-title"]//h5</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20221201 02:15:18.896" level="INFO">Current page contains element '//div[@class="product-section-title"]//h5'.</msg>
-<status status="PASS" starttime="20221201 02:15:18.885" endtime="20221201 02:15:18.896"/>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${loginForm}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221204 04:11:59.855" endtime="20221204 04:11:59.864"/>
 </kw>
-<status status="PASS" starttime="20221201 02:15:18.689" endtime="20221201 02:15:18.896"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${signUpLink}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221204 04:11:59.864" endtime="20221204 04:11:59.892"/>
 </kw>
-<status status="PASS" starttime="20221201 02:15:17.396" endtime="20221201 02:15:18.896"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${signUpLink}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 04:11:59.894" level="INFO">Clicking element '//a[@class="signup-link"]'.</msg>
+<status status="PASS" starttime="20221204 04:11:59.893" endtime="20221204 04:12:00.010"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>${SignUpPageURL}</arg>
+<arg>30</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20221204 04:12:00.010" endtime="20221204 04:12:00.016"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${signUpForm}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221204 04:12:00.017" endtime="20221204 04:12:00.029"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${signUpForm}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221204 04:12:00.030" endtime="20221204 04:12:00.043"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${signUpButton}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" starttime="20221204 04:12:00.043" endtime="20221204 04:12:00.059"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputFirstName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.060" level="INFO">Clicking element '//input[@type='first-name']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.059" endtime="20221204 04:12:00.111"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputFirstName}</arg>
+<arg>John.2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.112" level="INFO">Typing text 'John.2' into text field '//input[@type='first-name']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.111" endtime="20221204 04:12:00.230"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputLastName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.231" level="INFO">Clicking element '//input[@type='last-name']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.230" endtime="20221204 04:12:00.275"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputLastName}</arg>
+<arg>@Doe</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.276" level="INFO">Typing text '@Doe' into text field '//input[@type='last-name']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.275" endtime="20221204 04:12:00.351"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputGender}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.352" level="INFO">Clicking element '//div[@id='gender-dropdown-menu']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.351" endtime="20221204 04:12:00.413"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${genderList}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221204 04:12:00.413" endtime="20221204 04:12:00.660"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//li[@data-value='male']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.661" level="INFO">Clicking element '//li[@data-value='male']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.660" endtime="20221204 04:12:00.731"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputDateOfBirth}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.732" level="INFO">Clicking element '//input[@id=':r1:']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.731" endtime="20221204 04:12:00.952"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputDateOfBirth}</arg>
+<arg>04112000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 04:12:00.952" level="INFO">Typing text '04112000' into text field '//input[@id=':r1:']'.</msg>
+<status status="PASS" starttime="20221204 04:12:00.952" endtime="20221204 04:12:01.090"/>
+</kw>
+<status status="PASS" starttime="20221204 04:11:59.631" endtime="20221204 04:12:01.091"/>
+</kw>
+<status status="PASS" starttime="20221204 04:11:52.356" endtime="20221204 04:12:01.091"/>
 </test>
 <doc>A test suite for valid login</doc>
-<status status="PASS" starttime="20221201 02:15:17.301" endtime="20221201 02:15:18.898"/>
+<status status="PASS" starttime="20221204 04:11:52.269" endtime="20221204 04:12:01.092"/>
 </suite>
 <statistics>
 <total>
@@ -63,7 +163,5 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20221201 02:15:17.299" level="ERROR">Error in file '/home/lim/quatrogrocer-qa-drc/AutomationTestScript/test.robot' on line 9: Non-existing setting 'suite'. Did you mean:
-    Suite Setup</msg>
 </errors>
 </robot>
