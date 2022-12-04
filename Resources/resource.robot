@@ -95,46 +95,4 @@ User Enter Valid Email Address & Correct Password
     Click Element    //button[@class='signup-login-btn'] 
     Sleep    2
 
-#Sign Up
-
-Create Account
-#User click on 'Create a new account' & redirect user to signup page
-    Title Should Be    QuatroGrocer Shopping App
-    Page Should Contain Element    //*[@class="login-container"]    5
-    Wait Until Element Is Visible    //*[@class="login-container"]    5
-    Click Element    //*[@class="signup-link"]
-    Sleep     2
-
-Verify Sign Up Page Contains     
-    Page Should Contain Element    //div[@class="sign-up-container-content"]    5
-    Wait Until Element Is Visible    //div[@class="sign-up-container-content"]    5
-
-Enter First Name With Character Length more than equal to one
-
-    
-       
-
-
-    
-    
-
-
-
-    # Click Element    //*[@type='password']
-    # Press Keys    //*[@type='email']    CTRL+a+BACKSPACE
-    # Input Text    //*[@type='password']    abc123456
-    
-    # Wait Until Element Is Visible    //button[@class='signup-login-btn']    10
-    # Click Element    //button[@class='signup-login-btn']
-    # Sleep    5
-
-
-
-
-    # Click Element    //*[@type='email']
-    # Press Keys    //*[@type='email']    CTRL+a+BACKSPACE    
-    
-    # Wait Until Element Is Visible    //button[@class='signup-login-btn']    10    
-    # Element Should Be Disabled    //button[@class='signup-login-btn'] 
-    # Sleep    5
 
