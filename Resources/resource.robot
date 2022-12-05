@@ -80,16 +80,19 @@ Fill Up Sign Up Form
     Input Text    ${inputDoB}    04112000
 
     Click Element    ${inputEmail}
-    # Input Text    ${inputEmail}    
+    Input Text    ${inputEmail}    randomuser90@gmail.com
 
     Click Element    ${inputPassword}
-    # Input Text    ${inputPassword}    
+    Input Text    ${inputPassword}    Test@1234
     
     Click Element    ${tncCheckbox}
     Element Should Be Enabled    ${signUpButton}
-    Click Element    ${tncCheckbox}
-    Element Should Be Disabled    ${signUpButton}
-    Click Element    ${tncCheckbox}
-    Element Should Be Enabled    ${signUpButton}
+    # Click Element    ${tncCheckbox}
+    # Element Should Be Disabled    ${signUpButton}
+    # Click Element    ${tncCheckbox}
+    # Element Should Be Enabled    ${signUpButton}
 
     Click Element    ${signUpButton}
+    Wait Until Element Is Visible     css:input[type=email]:invalid    
+    ${error}    Execute Javascript     return (document.querySelector('input[type=email]:invalid')?.validationMessage.includes("missing an '@'"))
+    Should Be True    ${error}    
