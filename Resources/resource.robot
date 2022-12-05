@@ -17,7 +17,7 @@ Clear Input Field
 
 Open Application
     Open Browser    ${ApplicationURL}    ${Browser}
-    Title Should Be    ${ApplicationTitle}
+    # Title Should Be    ${ApplicationTitle}
     Maximize Browser Window
 
 Close Application
