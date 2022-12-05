@@ -11,8 +11,13 @@ ${Browser}    Chrome
 ${ApplicationURL}    http://localhost:3000/
 
 *** Keywords ***
+Clear Input Field
+    [Arguments]    @{inputField}
+    Press Keys     ${inputField}    CTRL+a+BACKSPACE
+
 Open Application
     Open Browser    ${ApplicationURL}    ${Browser}
+    Title Should Be    ${ApplicationTitle}
     Maximize Browser Window
 
 Close Application
