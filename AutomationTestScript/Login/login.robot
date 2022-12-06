@@ -1,9 +1,20 @@
 *** Settings ***
-Documentation        Test script for login
-Resource             ../Resources/resource.robot
-
-Suite Setup    Open Application
-Suite Teardown    Close Application
-Test Template    Invalid Login Scenario
+Documentation      A test suite for valid login
+Resource           ../../Resources/loginResource.robot
+# Execute Before Test Case
+Suite Setup         Open Application
+# Execute After Test Case
+Suite Teardown      Close Application
 
 *** Test Cases ***
+Open QuatroGrocer & Verify QuatroGrocer Login
+    Redirect Unregistered User To Login
+    Verify Login Page Contains
+    User Enter Unregistered Email Address
+    User Enter Invalid Email Address
+    User Enter Incorrect Email Address
+    User Mask & Unmask Password
+    User Leave Input Field Blank
+    User Enter Valid Email Address & Incorrect Password
+    User Enter Valid Email Address & Correct Password
+    
