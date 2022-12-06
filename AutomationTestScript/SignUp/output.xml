@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.9.12 on linux)" generated="20221204 10:26:55.658" rpa="false" schemaversion="3">
+<suite id="s1" name="Signup" source="/home/lim/quatrogrocer-qa-drc/AutomationTestScript/SignUp/signup.robot">
+<test id="s1-t1" name="Open Quatro Grocer Shopping App &amp; Create Quatro Grocer Account" line="11">
+<kw name="Open Application" library="resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ApplicationURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221204 10:26:55.812" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/'.</msg>
+<status status="PASS" starttime="20221204 10:26:55.811" endtime="20221204 10:27:15.419"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${ApplicationTitle}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221204 10:27:15.430" level="INFO">Page title is 'QuatroGrocer Shopping App'.</msg>
+<status status="PASS" starttime="20221204 10:27:15.420" endtime="20221204 10:27:15.430"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221204 10:27:15.430" endtime="20221204 10:27:15.534"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221204 10:27:16.534" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221204 10:27:15.534" endtime="20221204 10:27:16.535"/>
+</kw>
+<status status="PASS" starttime="20221204 10:26:55.811" endtime="20221204 10:27:16.535"/>
+</kw>
+<kw name="Direct To Sign Up Page" library="resource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221204 10:27:16.535" endtime="20221204 10:27:16.548"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221204 10:27:16.548" endtime="20221204 10:27:16.567"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:16.567" level="INFO">Clicking element '//*[@data-testid="AccountCircleOutlinedIcon"]'.</msg>
+<status status="PASS" starttime="20221204 10:27:16.567" endtime="20221204 10:27:16.651"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>${LoginPageURL}</arg>
+<arg>20</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20221204 10:27:16.651" endtime="20221204 10:27:16.664"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${loginForm}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221204 10:27:16.664" endtime="20221204 10:27:16.672"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${signUpLink}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221204 10:27:16.672" endtime="20221204 10:27:16.687"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${signUpLink}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:16.688" level="INFO">Clicking element '//a[@class="signup-link"]'.</msg>
+<status status="PASS" starttime="20221204 10:27:16.688" endtime="20221204 10:27:16.764"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>${SignUpPageURL}</arg>
+<arg>20</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20221204 10:27:16.764" endtime="20221204 10:27:16.769"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${signUpForm}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221204 10:27:16.769" endtime="20221204 10:27:16.778"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${signUpForm}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221204 10:27:16.779" endtime="20221204 10:27:16.789"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${signUpButton}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" starttime="20221204 10:27:16.789" endtime="20221204 10:27:16.800"/>
+</kw>
+<status status="PASS" starttime="20221204 10:27:16.535" endtime="20221204 10:27:16.801"/>
+</kw>
+<kw name="Fill Up Sign Up Form" library="resource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputFirstName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:16.801" level="INFO">Clicking element '//input[@type='first-name']'.</msg>
+<status status="PASS" starttime="20221204 10:27:16.801" endtime="20221204 10:27:16.852"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputFirstName}</arg>
+<arg>John</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:16.853" level="INFO">Typing text 'John' into text field '//input[@type='first-name']'.</msg>
+<status status="PASS" starttime="20221204 10:27:16.852" endtime="20221204 10:27:16.936"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputLastName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:16.936" level="INFO">Clicking element '//input[@type='last-name']'.</msg>
+<status status="PASS" starttime="20221204 10:27:16.936" endtime="20221204 10:27:16.972"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputLastName}</arg>
+<arg>Doe</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:16.973" level="INFO">Typing text 'Doe' into text field '//input[@type='last-name']'.</msg>
+<status status="PASS" starttime="20221204 10:27:16.972" endtime="20221204 10:27:17.033"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputGender}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:17.034" level="INFO">Clicking element '//div[@id='gender-dropdown-menu']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.033" endtime="20221204 10:27:17.095"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${genderList}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221204 10:27:17.095" endtime="20221204 10:27:17.337"/>
+</kw>
+<for flavor="IN">
+<var>${gender}</var>
+<value>@{genderSelections}</value>
+<iter>
+<var name="${gender}">male</var>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//li[@data-value='${gender}']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221204 10:27:17.346" level="INFO">Current page contains element '//li[@data-value='male']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.338" endtime="20221204 10:27:17.346"/>
+</kw>
+<status status="PASS" starttime="20221204 10:27:17.337" endtime="20221204 10:27:17.346"/>
+</iter>
+<iter>
+<var name="${gender}">female</var>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//li[@data-value='${gender}']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221204 10:27:17.354" level="INFO">Current page contains element '//li[@data-value='female']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.346" endtime="20221204 10:27:17.354"/>
+</kw>
+<status status="PASS" starttime="20221204 10:27:17.346" endtime="20221204 10:27:17.354"/>
+</iter>
+<iter>
+<var name="${gender}">others</var>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//li[@data-value='${gender}']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221204 10:27:17.362" level="INFO">Current page contains element '//li[@data-value='others']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.355" endtime="20221204 10:27:17.362"/>
+</kw>
+<status status="PASS" starttime="20221204 10:27:17.354" endtime="20221204 10:27:17.362"/>
+</iter>
+<status status="PASS" starttime="20221204 10:27:17.337" endtime="20221204 10:27:17.362"/>
+</for>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${selectMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:17.362" level="INFO">Clicking element '//li[@data-value='male']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.362" endtime="20221204 10:27:17.417"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputDoB}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:17.418" level="INFO">Clicking element '//input[@id=':r1:']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.417" endtime="20221204 10:27:17.640"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputDoB}</arg>
+<arg>04112000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:17.640" level="INFO">Typing text '04112000' into text field '//input[@id=':r1:']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.640" endtime="20221204 10:27:17.767"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:17.768" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.767" endtime="20221204 10:27:17.802"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<arg>randomuser3gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:17.803" level="INFO">Typing text 'randomuser3gmail.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.802" endtime="20221204 10:27:17.969"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:17.970" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221204 10:27:17.970" endtime="20221204 10:27:18.006"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>Test@1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:18.007" level="INFO">Typing text 'Test@1234' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221204 10:27:18.006" endtime="20221204 10:27:18.091"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${tncCheckbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221204 10:27:18.091" level="INFO">Clicking element '//span[@class='checkmark']'.</msg>
+<status status="PASS" starttime="20221204 10:27:18.091" endtime="20221204 10:27:18.128"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${signUpButton}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<msg timestamp="20221204 10:27:18.258" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221204 10:27:18.258" level="FAIL">Element '//button[@class='signup-btn']' is disabled.</msg>
+<status status="FAIL" starttime="20221204 10:27:18.128" endtime="20221204 10:27:18.258"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${signUpButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221204 10:27:18.258" endtime="20221204 10:27:18.258"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css:input[type=email]:invalid</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221204 10:27:18.259" endtime="20221204 10:27:18.259"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${error}</var>
+<arg>return (document.querySelector('input[type=email]:invalid')?.validationMessage.includes("missing an '@'"))</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20221204 10:27:18.259" endtime="20221204 10:27:18.259"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${error}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" starttime="20221204 10:27:18.259" endtime="20221204 10:27:18.259"/>
+</kw>
+<status status="FAIL" starttime="20221204 10:27:16.801" endtime="20221204 10:27:18.259"/>
+</kw>
+<kw name="Close Application" library="resource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221204 10:27:18.259" endtime="20221204 10:27:18.320"/>
+</kw>
+<status status="PASS" starttime="20221204 10:27:18.259" endtime="20221204 10:27:18.320"/>
+</kw>
+<status status="FAIL" starttime="20221204 10:26:55.810" endtime="20221204 10:27:18.320">Element '//button[@class='signup-btn']' is disabled.</status>
+</test>
+<doc>A Test Case For Creating Quatro Grocer Account</doc>
+<status status="FAIL" starttime="20221204 10:26:55.658" endtime="20221204 10:27:18.321"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Signup">Signup</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
