@@ -35,13 +35,14 @@ ${selectMonth}          //div[contains(@class,'MuiMonthPicker-root css-1616glu')
 ${selectDate}           //div[contains(@class,'MuiCalendarPicker-root')]//button[text()=8]
 ${inputEmail}           //input[@type='email']
 ${inputPassword}        //input[@type='password']
+${unmaskedPassword}     //input[@type='text' and @placeholder='Password']
 ${maskedIcon}           //*[@class='MuiSvgIcon-root']
 ${checkboxState}        //input[@type='checkbox']
 ${falseCheckbox}        //input[@type='checkbox' and @value='false']
 ${trueCheckbox}         //input[@type='checkbox' and @value='true']
 ${tncCheckbox}          //span[@class='checkmark']
-${signUpButton}         //button[@class='signup-btn']
 ${errorMessage}         //p[@class='errmsg']
+${signUpButton}         //button[@class='signup-btn']
 
 *** Keywords ***
 Clear Input Field
@@ -64,17 +65,19 @@ Direct to Login Page
     
 Direct to Sign Up Page
     Wait Until Page Contains Element    ${loginForm}    40
+    Page Should Contain Element         ${loginForm}    40
     Wait Until Element Is Visible       ${signUpLink}    40
     Click Element                       ${signUpLink}    
+
+Verify Sign Up Page    
     Wait Until Location Is              ${SignUpPageURL}    40
-
-
-Fill Up Sign Up Form
+    Page Should Contain Element         ${signUpForm}    40
     Wait Until Page Contains Element    ${signUpForm}    40
     Wait Until Element Is Visible       ${signUpForm}    40
     Checkbox Should Not Be Selected     ${checkboxState}
     Element Should Be Disabled          ${signUpButton}
-    
+
+Fill Up Sign Up Form
     # First Name Input
     Click Element    ${inputFirstName}    
     Input Text       ${inputFirstName}    Hassif-1mran
@@ -122,6 +125,8 @@ Fill Up Sign Up Form
 
     Click Element    ${signUpButton}
     Wait Until Page Contains Element    ${errorMessage}    40
+    Wait Until Element Is Visible    ${errorMessage}    40
+    Element Should Be Visible    ${errorMessage}    40
     ${getFirstErrorMessage}=    Get Text    ${errorMessage}
         
     # Re-type First Name
@@ -132,6 +137,8 @@ Fill Up Sign Up Form
     Click Element    ${signUpButton}
     Sleep    1
     Wait Until Page Contains Element    ${errorMessage}    40
+    Wait Until Element Is Visible    ${errorMessage}    40
+    Element Should Be Visible    ${errorMessage}    40
     ${getSecondErrorMessage}=    Get Text    ${errorMessage}
 
     # Check Error Message Value
@@ -142,6 +149,7 @@ Fill Up Sign Up Form
     Clear Input Field    ${inputPassword}
     Input Text    ${inputPassword}    password
     Click Element    ${maskedIcon}
+    Page Should Contain Element    ${unmaskedPassword}
     Click Element    ${maskedIcon}
 
     # Sign Up Account

@@ -11,12 +11,29 @@ ${Browser}    Chrome
 ${ApplicationTitle}    QuatroGrocer Shopping App
 ${ApplicationURL}      https://www.quatrogrocer.one/
 ${LoginPageURL}        https://www.quatrogrocer.one/login
-${SignUpPageURL}       https://www.quatrogrocer.one/signup
+${ProfilePageURL}      https://www.quatrogrocer.one/profile
+
+# Declaring Login Account Variables
+${profileIcon}          //*[@data-testid='AccountCircleOutlinedIcon']
+${loginForm}            //div[@class='login-container-content']
+${inputEmail}           //input[@type='email']
+${inputPassword}        //input[@type='password']
+${maskedIcon}           //*[@class='MuiSvgIcon-root']
+${unmaskedPassword}     //input[@type='text' and @placeholder='Password']
+${errorMessage}         //p[@class='errmsg']
+${loginButton}          //button[@class='login-btn']
 
 *** Keywords ***
 Clear Input Field
     [Arguments]    @{inputField}
     Press Keys     ${inputField}    CTRL+a+BACKSPACE
+
+Clear Login Form
+    Click Element    ${inputEmail}
+    Clear Input Field    ${inputEmail}
+    Click Element    ${inputPassword}
+    Clear Input Field    ${inputPassword}
+    Element Should Be Disabled    ${loginButton}
 
 Open Application
     Open Browser    ${ApplicationURL}    ${Browser}
@@ -26,68 +43,101 @@ Open Application
 Close Application
     Close Browser
 
+Direct to Login Page
+    Wait Until Page Contains Element    ${profileIcon}    40
+    Wait Until Element Is Visible       ${profileIcon}    40
+    Click Element                       ${profileIcon}    
 
-Verify Page Contains
-    Title Should Be    QuatroGrocer Shopping App
-    Wait Until Element Is Visible    //*[@class="home-header-content"]//button
-    Click Element    //*[@class="home-header-content"]//button
-    Wait Until Location Is    https://www.quatrogrocer.one/marketplace
-    Page Should Contain Element    //div[@class="product-section-title"]//h5
+Verify Login Page
+    Wait Until Location Is              ${LoginPageURL}    40
+    Page Should Contain Element         ${loginForm}    40
+    Wait Until Page Contains Element    ${loginForm}    40
+    Wait Until Element Is Visible       ${loginForm}    40
+    Element Should Be Disabled          ${loginButton}
 
-Verify Login Page Contains
-    Title Should Be    QuatroGrocer Shopping App
-    Wait Until Element Is Visible    //*[@class="login-container"]    10
+Verify Login Fail - Invalid Email Format
+    # First Invalid Email Format
+    Click Element    ${inputEmail}
+    Input Text    ${inputEmail}    jonygmail.com
 
-User Enter Unregistered Email Address
-#User enter email does not exist
-    Wait Until Page Contains Element    //*[@class="MuiInputBase-input MuiInput-input"]    10
-    Input Text    //*[@type='email']    testing123@gmail.com
-    Wait Until Page Contains Element    //*[@class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"]    10
-    Input Text    //input[@type='password']  Abc123456!
-    Wait Until Element Is Visible    //button[@class='signup-login-btn']    10
-    Click Element    //button[@class='signup-login-btn']
+    Click Element    ${inputPassword}
+    Input Text    ${inputPassword}    Test@1234
 
-User Enter Invalid Email Address
-#User enter email without '@'
-    Click Element    //*[@type='email']
-    Press Keys    //*[@type='email']    CTRL+a+BACKSPACE   
-    Input Text    //*[@type='email']    randomusergmail.com
-    Wait Until Page Contains Element    //*[@class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"]    10
-    Input Text    //input[@type='password']  Abc123456!
-    Wait Until Element Is Visible    //button[@class='signup-login-btn']    10
-    Click Element    //button[@class='signup-login-btn']
+    Element Should Be Enabled    ${loginButton}
+    Click Element    ${loginButton}
 
-User Enter Incorrect Email Address
-#User enter email with wrong position of '.'    
-    Click Element    //*[@type='email']
-    Press Keys    //*[@type='email']    CTRL+a+BACKSPACE
-    Input Text    //*[@type='email']    randomuser@.com
-    Wait Until Element Is Visible    //button[@class='signup-login-btn']    10
-    Click Element    //button[@class='signup-login-btn']
+    Sleep    1
 
- User Mask & Unmask Password   
-    Click Element    //*[@class="MuiSvgIcon-root"] 
-    Click Element    //*[@class="MuiSvgIcon-root"]
+    Wait Until Element Is Visible    css:input[type=email]:invalid
+    ${error}    Execute JavaScript    return ["missing an '@'","'.' is used at a wrong position in"].some(e=>document.querySelector('input[type=email]:invalid')?.validationMessage.includes(e))
+    Should Be True    ${error}
 
- User Leave Input Field Blank
-    Click Element    //*[@type='email']
-    Press Keys    //*[@type='email']    CTRL+a+BACKSPACE
-    Click Element    //*[@type='password']
-    Press Keys    //*[@type='password']    CTRL+a+BACKSPACE
-    Element Should Be Disabled    //button[@class='signup-login-btn']     
+    Click Element    ${inputEmail}
+    Clear Input Field    ${inputEmail}
+    # Second Invalid Email Format
+    Input Text    ${inputEmail}    jonyj@.com
 
- User Enter Valid Email Address & Incorrect Password    
-    Click Element    //*[@type='email']
-    Press Keys    //*[@type='email']    CTRL+a+BACKSPACE
-    Input Text    //*[@type='email']    randomuser@gmail.com
-    Click Element    //*[@type='password']
-    Press Keys    //*[@type='password']    CTRL+a+BACKSPACE
-    Input Text    //*[@type='password']    abc123456
-    Click Element    //button[@class='signup-login-btn']   
+    Element Should Be Enabled    ${loginButton}
+    Click Element    ${loginButton}
 
-User Enter Valid Email Address & Correct Password
-    Click Element    //*[@type='password']
-    Press Keys    //*[@type='password']    CTRL+a+BACKSPACE
-    Input Text    //*[@type='password']    Abc123456!
-    Click Element    //button[@class='signup-login-btn'] 
-    Sleep    2
+    Sleep    1
+
+    Wait Until Element Is Visible    css:input[type=email]:invalid
+    ${error}    Execute JavaScript    return ["missing an '@'","'.' is used at a wrong position in"].some(e=>document.querySelector('input[type=email]:invalid')?.validationMessage.includes(e))
+    Should Be True    ${error}
+
+    Clear Login Form
+
+Verify Login Fail - Unregistered Email
+    # Unregistered Email 
+    Click Element    ${inputEmail}
+    Input Text    ${inputEmail}    shawn1234321@gmail.com
+    
+    Click Element    ${inputPassword}
+    Input Text    ${inputPassword}    Test@1234
+
+    Element Should Be Enabled    ${loginButton}
+    Click Element    ${loginButton}
+    Sleep    1
+    Wait Until Page Contains Element    ${errorMessage}    40
+    Wait Until Element Is Visible    ${errorMessage}    40
+    Element Should Be Visible    ${errorMessage}    40
+    ${nonExistEmailErrorMessage}=    Get Text    ${errorMessage}
+    
+    Clear Login Form
+
+Verify Login Fail - Wrong Password
+    # Registered Email 
+    Click Element    ${inputEmail}
+    Input Text    ${inputEmail}    jonyj@gmail.com
+    # Wrong Password
+    Click Element    ${inputPassword}
+    Input Text    ${inputPassword}    Test212311234
+
+    Element Should Be Enabled    ${loginButton}
+    Click Element    ${loginButton}
+    Sleep    1
+    Wait Until Page Contains Element    ${errorMessage}    40
+    Wait Until Element Is Visible    ${errorMessage}    40
+    Element Should Be Visible    ${errorMessage}    40
+    ${nonExistEmailErrorMessage}=    Get Text    ${errorMessage}
+    
+    Clear Login Form
+
+Login With Registered Email And Password
+    # Registered Email 
+    Click Element    ${inputEmail}
+    Input Text    ${inputEmail}    jonyj@gmail.com
+    # Registered Password
+    Click Element    ${inputPassword}
+    Input Text    ${inputPassword}    Test@1234
+    Click Element    ${maskedIcon}
+    Page Should Contain Element    ${unmaskedPassword}
+    Click Element    ${maskedIcon}
+
+    # Login Account
+    Element Should Be Enabled    ${loginButton}
+    Click Element    ${loginButton}
+    
+    Wait Until Location Is Not    ${LoginPageURL}
+    Wait Until Location Is    ${ProfilePageURL}
