@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221206 17:29:39.160" rpa="false" schemaversion="3">
+<suite id="s1" name="Addaddress" source="/home/ng/quatrogrocer-qa-drc/AutomationTestScript/AddAddress/addaddress.robot">
+<test id="s1-t1" name="Open Quatro Grocer Shopping App &amp; Add Address" line="11">
+<kw name="Open Application" library="addaddressResource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ApplicationURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221206 17:29:39.249" level="INFO">Opening browser 'Chrome' to base url 'https://www.quatrogrocer.one/'.</msg>
+<status status="PASS" starttime="20221206 17:29:39.249" endtime="20221206 17:29:40.443"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${ApplicationTitle}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221206 17:29:40.455" level="INFO">Page title is 'QuatroGrocer Shopping App'.</msg>
+<status status="PASS" starttime="20221206 17:29:40.444" endtime="20221206 17:29:40.455"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221206 17:29:40.455" endtime="20221206 17:29:40.557"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:39.248" endtime="20221206 17:29:40.557"/>
+</kw>
+<kw name="Direct to Login Page" library="addaddressResource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 17:29:40.558" endtime="20221206 17:29:40.570"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:40.571" level="INFO">Clicking element '//*[@data-testid='AccountCircleOutlinedIcon']'.</msg>
+<status status="PASS" starttime="20221206 17:29:40.570" endtime="20221206 17:29:40.652"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:40.558" endtime="20221206 17:29:40.652"/>
+</kw>
+<kw name="User Login" library="addaddressResource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${loginForm}</arg>
+<arg>30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 17:29:40.653" endtime="20221206 17:29:40.684"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:40.685" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 17:29:40.685" endtime="20221206 17:29:40.738"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<arg>junyuan99@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:40.739" level="INFO">Typing text 'junyuan99@gmail.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 17:29:40.738" endtime="20221206 17:29:40.827"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:40.827" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 17:29:40.827" endtime="20221206 17:29:40.882"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>Abc1234567890!</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:40.883" level="INFO">Typing password into text field '//input[@type='password']'.</msg>
+<msg timestamp="20221206 17:29:40.918" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20221206 17:29:40.990" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20221206 17:29:40.883" endtime="20221206 17:29:40.990"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:40.991" level="INFO">Clicking element '//button[@class='login-btn']'.</msg>
+<status status="PASS" starttime="20221206 17:29:40.990" endtime="20221206 17:29:41.022"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:40.653" endtime="20221206 17:29:41.022"/>
+</kw>
+<kw name="Direct User to Profile Page" library="addaddressResource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 17:29:41.023" endtime="20221206 17:29:41.027"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.027" level="INFO">Clicking element '//*[@data-testid='AccountCircleOutlinedIcon']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.027" endtime="20221206 17:29:41.066"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:41.023" endtime="20221206 17:29:41.066"/>
+</kw>
+<kw name="Direct User to Shipping Address Page" library="addaddressResource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${profilePageContainer}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 17:29:41.067" endtime="20221206 17:29:41.301"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${accountDetailsContainer}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 17:29:41.301" endtime="20221206 17:29:41.321"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@class='view-address-link']</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 17:29:41.321" endtime="20221206 17:29:41.338"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@class='view-address-link']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.339" level="INFO">Clicking element '//*[@class='view-address-link']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.339" endtime="20221206 17:29:41.367"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:41.066" endtime="20221206 17:29:41.367"/>
+</kw>
+<kw name="Direct User to Add New Shipping Address Page" library="addaddressResource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${addressPageContainer}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 17:29:41.368" endtime="20221206 17:29:41.381"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addAddressButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.382" level="INFO">Clicking element '//button[@class='add-address-btn']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.381" endtime="20221206 17:29:41.448"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:41.368" endtime="20221206 17:29:41.448"/>
+</kw>
+<kw name="User Enter Address Line More than 50" library="addaddressResource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${addAddressPageContainer}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 17:29:41.449" endtime="20221206 17:29:41.462"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addressLine1InputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.462" level="INFO">Clicking element '//div[contains(@class, 'address-line-1')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.462" endtime="20221206 17:29:41.510"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${addressLine1InputField}</arg>
+<arg>No.82ufhdjfnvkdsmvdsmvkmdsvksmvslvmslkvmlfskmvomvkmf2323232fsvfnvjfnvkfsmvkfslmvlsmvmsmvkfsmvkfmsvlmfsv</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.511" level="INFO">Typing text 'No.82ufhdjfnvkdsmvdsmvkmdsvksmvslvmslkvmlfskmvomvkmf2323232fsvfnvjfnvkfsmvkfslmvlsmvmsmvkfsmvkfmsvlmfsv' into text field '//div[contains(@class, 'address-line-1')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.511" endtime="20221206 17:29:41.656"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addressLine2InputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.657" level="INFO">Clicking element '//div[contains(@class, 'address-line-2')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.657" endtime="20221206 17:29:41.688"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${addressLine2InputField}</arg>
+<arg>Jalan Warisan Mulia</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.688" level="INFO">Typing text 'Jalan Warisan Mulia' into text field '//div[contains(@class, 'address-line-2')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.688" endtime="20221206 17:29:41.738"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addressLine2InputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.739" level="INFO">Clicking element '//div[contains(@class, 'address-line-2')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.739" endtime="20221206 17:29:41.758"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${addressLine3InputField}</arg>
+<arg>4/3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.758" level="INFO">Typing text '4/3' into text field '//div[contains(@class, 'address-line-3')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.758" endtime="20221206 17:29:41.808"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.808" level="INFO">Clicking element '//div[contains(@class, 'postcode')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.808" endtime="20221206 17:29:41.839"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<arg>43900</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.839" level="INFO">Typing text '43900' into text field '//div[contains(@class, 'postcode')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.839" endtime="20221206 17:29:41.877"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.878" level="INFO">Clicking element '//div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.878" endtime="20221206 17:29:41.908"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<arg>Selangor</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.909" level="INFO">Typing text 'Selangor' into text field '//div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.908" endtime="20221206 17:29:41.946"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addAddressButton1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.947" level="INFO">Clicking element '//button[@class='add-address-btn']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.946" endtime="20221206 17:29:41.972"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:41.449" endtime="20221206 17:29:41.972"/>
+</kw>
+<kw name="User Enter Postcode With Characters" library="addaddressResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addressLine1InputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:41.973" level="INFO">Clicking element '//div[contains(@class, 'address-line-1')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:41.973" endtime="20221206 17:29:42.003"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${addressLine1InputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 17:29:42.004" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to //div[contains(@class, 'address-line-1')]//input[@type='text'] element.</msg>
+<msg timestamp="20221206 17:29:42.284" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 17:29:42.285" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 17:29:42.285" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 17:29:42.285" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 17:29:42.285" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 17:29:42.003" endtime="20221206 17:29:42.310"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${addressLine1InputField}</arg>
+<arg>No.8</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:42.310" level="INFO">Typing text 'No.8' into text field '//div[contains(@class, 'address-line-1')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:42.310" endtime="20221206 17:29:42.344"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:42.345" level="INFO">Clicking element '//div[contains(@class, 'postcode')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:42.344" endtime="20221206 17:29:42.363"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 17:29:42.363" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to //div[contains(@class, 'postcode')]//input[@type='text'] element.</msg>
+<msg timestamp="20221206 17:29:42.635" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 17:29:42.635" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 17:29:42.636" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 17:29:42.636" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 17:29:42.636" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 17:29:42.363" endtime="20221206 17:29:42.651"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<arg>four thousands</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:42.652" level="INFO">Typing text 'four thousands' into text field '//div[contains(@class, 'postcode')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:42.652" endtime="20221206 17:29:42.689"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addAddressButton1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:42.690" level="INFO">Clicking element '//button[@class='add-address-btn']'.</msg>
+<status status="PASS" starttime="20221206 17:29:42.690" endtime="20221206 17:29:42.708"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:41.972" endtime="20221206 17:29:42.708"/>
+</kw>
+<kw name="User Enter Invalid State" library="addaddressResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:42.709" level="INFO">Clicking element '//div[contains(@class, 'postcode')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:42.708" endtime="20221206 17:29:42.736"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 17:29:42.737" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to //div[contains(@class, 'postcode')]//input[@type='text'] element.</msg>
+<msg timestamp="20221206 17:29:43.012" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 17:29:43.012" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 17:29:43.012" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 17:29:43.012" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 17:29:43.013" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 17:29:42.736" endtime="20221206 17:29:43.029"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${postCodeInputField}</arg>
+<arg>43900</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:43.029" level="INFO">Typing text '43900' into text field '//div[contains(@class, 'postcode')]//input[@type='text']'.</msg>
+<status status="PASS" starttime="20221206 17:29:43.029" endtime="20221206 17:29:43.059"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:43.060" level="INFO">Clicking element '//div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input'.</msg>
+<status status="PASS" starttime="20221206 17:29:43.060" endtime="20221206 17:29:43.079"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 17:29:43.080" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to //div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input element.</msg>
+<msg timestamp="20221206 17:29:43.350" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 17:29:43.350" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 17:29:43.350" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 17:29:43.350" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 17:29:43.351" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 17:29:43.079" endtime="20221206 17:29:43.366"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<arg>London</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:43.367" level="INFO">Typing text 'London' into text field '//div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input'.</msg>
+<status status="PASS" starttime="20221206 17:29:43.366" endtime="20221206 17:29:43.398"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addAddressButton1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:43.398" level="INFO">Clicking element '//button[@class='add-address-btn']'.</msg>
+<status status="PASS" starttime="20221206 17:29:43.398" endtime="20221206 17:29:43.415"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:42.708" endtime="20221206 17:29:43.415"/>
+</kw>
+<kw name="User Enter Valid Shipping Address" library="addaddressResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:43.416" level="INFO">Clicking element '//div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input'.</msg>
+<status status="PASS" starttime="20221206 17:29:43.416" endtime="20221206 17:29:43.445"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 17:29:43.446" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to //div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input element.</msg>
+<msg timestamp="20221206 17:29:43.713" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 17:29:43.713" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 17:29:43.714" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 17:29:43.714" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 17:29:43.714" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 17:29:43.445" endtime="20221206 17:29:43.730"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${stateInputField}</arg>
+<arg>Selangor</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:43.731" level="INFO">Typing text 'Selangor' into text field '//div[contains(@class,'MuiInputBase-root MuiInput-root state-input')]//input'.</msg>
+<status status="PASS" starttime="20221206 17:29:43.730" endtime="20221206 17:29:43.765"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addAddressButton1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 17:29:43.766" level="INFO">Clicking element '//button[@class='add-address-btn']'.</msg>
+<status status="PASS" starttime="20221206 17:29:43.765" endtime="20221206 17:29:43.784"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221206 17:29:45.785" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221206 17:29:43.785" endtime="20221206 17:29:45.785"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:43.415" endtime="20221206 17:29:45.786"/>
+</kw>
+<kw name="Close Application" library="addaddressResource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221206 17:29:45.787" endtime="20221206 17:29:45.845"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:45.786" endtime="20221206 17:29:45.845"/>
+</kw>
+<status status="PASS" starttime="20221206 17:29:39.248" endtime="20221206 17:29:45.845"/>
+</test>
+<doc>A Test Case For Add Address</doc>
+<status status="PASS" starttime="20221206 17:29:39.161" endtime="20221206 17:29:45.846"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Addaddress">Addaddress</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
