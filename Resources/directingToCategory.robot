@@ -34,5 +34,5 @@ Direct To Marketplace Page
     Click Element    //li[text()='Marketplace']
     Wait Until Page Contains Element    //div[@class='side-nav']
     Wait Until Element Is Visible    //div[@class='side-nav']
-    ${fuck}    Execute Javascript    return (Array.prototype.map.call(document.querySelelectorAll('div.category-list ul li'),z=>z.innerText))
-    Should Be Empty    ${fuck}
+    ${test}    Execute Javascript    return (Array.prototype.map.call(document.querySelelectorAll('div.category-list ul li'),z=>z.innerText))
+    Should Be Empty    ${test}
