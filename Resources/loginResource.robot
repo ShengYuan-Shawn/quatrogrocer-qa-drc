@@ -11,12 +11,23 @@ ${LoginPageURL}        https://www.quatrogrocer.one/login
 ${SignUpPageURL}       https://www.quatrogrocer.one/signup
 
 *** Keywords ***
+Open Application
+    Open Browser    ${ApplicationURL}    Chrome
+    Title Should Be    ${ApplicationTitle}
+    Maximize Browser Window
+
+Close Application
+    Close Browser
+
 Verify Page Contains
     Title Should Be    QuatroGrocer Shopping App
     Wait Until Element Is Visible    //*[@class="home-header-content"]//button
     Click Element    //*[@class="home-header-content"]//button
     Wait Until Location Is    https://www.quatrogrocer.one/marketplace
     Page Should Contain Element    //div[@class="product-section-title"]//h5
+
+Redirect Unregistered User To Login
+
 
 Verify Login Page Contains
     Title Should Be    QuatroGrocer Shopping App
