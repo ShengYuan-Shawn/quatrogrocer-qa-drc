@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221206 01:22:02.524" rpa="false" schemaversion="3">
+<suite id="s1" name="Category" source="/home/lim/quatrogrocer-qa-drc/AutomationTestScript/Category/category.robot">
+<test id="s1-t1" name="Open Quatro Grocer Shopping App &amp; Create Quatro Grocer Account" line="11">
+<kw name="Open Application" library="directingToCategory" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ApplicationURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221206 01:22:02.615" level="INFO">Opening browser 'Chrome' to base url 'https://www.quatrogrocer.one/'.</msg>
+<status status="PASS" starttime="20221206 01:22:02.615" endtime="20221206 01:22:03.849"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${ApplicationTitle}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221206 01:22:03.862" level="INFO">Page title is 'QuatroGrocer Shopping App'.</msg>
+<status status="PASS" starttime="20221206 01:22:03.849" endtime="20221206 01:22:03.862"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221206 01:22:03.862" endtime="20221206 01:22:03.966"/>
+</kw>
+<status status="PASS" starttime="20221206 01:22:02.615" endtime="20221206 01:22:03.966"/>
+</kw>
+<kw name="Direct To Marketplace Page" library="directingToCategory">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//li[text()='Marketplace']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 01:22:03.967" endtime="20221206 01:22:04.099"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//li[text()='Marketplace']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 01:22:04.100" level="INFO">Clicking element '//li[text()='Marketplace']'.</msg>
+<status status="PASS" starttime="20221206 01:22:04.099" endtime="20221206 01:22:04.193"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//div[@class='side-nav']</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 01:22:04.193" endtime="20221206 01:22:04.214"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class='side-nav']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 01:22:04.215" endtime="20221206 01:22:04.233"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${fuck}</var>
+<arg>return (Array.prototype.map.call(document.querySelelectorAll('div.category-list ul li'),z=&gt;z.innerText))</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20221206 01:22:04.233" level="INFO">Executing JavaScript:
+return (Array.prototype.map.call(document.querySelelectorAll('div.category-list ul li'),z=&gt;z.innerText))
+Without any arguments.</msg>
+<msg timestamp="20221206 01:22:04.720" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221206 01:22:04.721" level="FAIL">JavascriptException: Message: javascript error: document.querySelelectorAll is not a function
+  (Session info: chrome=107.0.5304.110)
+Stacktrace:
+#0 0x562ba36b0463 &lt;unknown&gt;
+#1 0x562ba34748d8 &lt;unknown&gt;
+#2 0x562ba3477e67 &lt;unknown&gt;
+#3 0x562ba3477ce0 &lt;unknown&gt;
+#4 0x562ba3478a2a &lt;unknown&gt;
+#5 0x562ba34ecf5e &lt;unknown&gt;
+#6 0x562ba34d3622 &lt;unknown&gt;
+#7 0x562ba34ec30f &lt;unknown&gt;
+#8 0x562ba34d3443 &lt;unknown&gt;
+#9 0x562ba34a43c5 &lt;unknown&gt;
+#10 0x562ba34a5531 &lt;unknown&gt;
+#11 0x562ba3702dce &lt;unknown&gt;
+#12 0x562ba3706192 &lt;unknown&gt;
+#13 0x562ba36e793e &lt;unknown&gt;
+#14 0x562ba3707103 &lt;unknown&gt;
+#15 0x562ba36dad85 &lt;unknown&gt;
+#16 0x562ba37280a8 &lt;unknown&gt;
+#17 0x562ba3728239 &lt;unknown&gt;
+#18 0x562ba3743492 &lt;unknown&gt;
+#19 0x7ff027905609 start_thread
+</msg>
+<status status="FAIL" starttime="20221206 01:22:04.233" endtime="20221206 01:22:04.723"/>
+</kw>
+<kw name="Should Be Empty" library="BuiltIn">
+<arg>${fuck}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="NOT RUN" starttime="20221206 01:22:04.723" endtime="20221206 01:22:04.723"/>
+</kw>
+<status status="FAIL" starttime="20221206 01:22:03.967" endtime="20221206 01:22:04.724"/>
+</kw>
+<kw name="Close Application" library="directingToCategory" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221206 01:22:04.725" endtime="20221206 01:22:04.782"/>
+</kw>
+<status status="PASS" starttime="20221206 01:22:04.724" endtime="20221206 01:22:04.782"/>
+</kw>
+<status status="FAIL" starttime="20221206 01:22:02.614" endtime="20221206 01:22:04.782">JavascriptException: Message: javascript error: document.querySelelectorAll is not a function
+  (Session info: chrome=107.0.5304.110)
+Stacktrace:
+#0 0x562ba36b0463 &lt;unknown&gt;
+#1 0x562ba34748d8 &lt;unknown&gt;
+#2 0x562ba3477e67 &lt;unknown&gt;
+#3 0x562ba3477ce0 &lt;unknown&gt;
+#4 0x562ba3478a2a &lt;unknown&gt;
+#5 0x562ba34ecf5e &lt;unknown&gt;
+#6 0x562ba34d3622 &lt;unknown&gt;
+#7 0x562ba34ec30f &lt;unknown&gt;
+#8 0x562ba34d3443 &lt;unknown&gt;
+#9 0x562ba34a43c5 &lt;unknown&gt;
+#10 0x562ba34a5531 &lt;unknown&gt;
+#11 0x562ba3702dce &lt;unknown&gt;
+#12 0x562ba3706192 &lt;unknown&gt;
+#13 0x562ba36e793e &lt;unknown&gt;
+#14 0x562ba3707103 &lt;unknown&gt;
+#15 0x562ba36dad85 &lt;unknown&gt;
+#16 0x562ba37280a8 &lt;unknown&gt;
+#17 0x562ba3728239 &lt;unknown&gt;
+#18 0x562ba3743492 &lt;unknown&gt;
+#19 0x7ff027905609 start_thread
+</status>
+</test>
+<doc>A Test Case For Directing To Categories</doc>
+<status status="FAIL" starttime="20221206 01:22:02.524" endtime="20221206 01:22:04.783"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Category">Category</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
