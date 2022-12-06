@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation      A Test Case For Creating Quatro Grocer Account
-Resource           ../../Resources/resource.robot
+Resource           ../../Resources/signupResource.robot
 
 # Execute Before Test Case
 Test Setup         Open Application
@@ -9,5 +9,6 @@ Test Teardown      Close Application
 
 *** Test Cases ***
 Open Quatro Grocer Shopping App & Create Quatro Grocer Account
-    Direct To Sign Up Page
-    Fill Up Sign Up Form
+    signupResource.Direct to Login Page
+    signupResource.Direct to Sign Up Page
+    signupResource.Fill Up Sign Up Form

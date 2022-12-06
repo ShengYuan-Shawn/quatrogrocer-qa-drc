@@ -4,64 +4,13 @@ Documentation      This is a resource file that contain variables and keywords f
 Library            SeleniumLibrary
 
 *** Variables ***
-# Declaring Broswer
-${Browser}    Chrome
-
-# Declaring Application URL
-${ApplicationURL}    http://localhost:3000/
+# Declaring Application Details & URL
+${ApplicationTitle}    QuatroGrocer Shopping App
+${ApplicationURL}      https://www.quatrogrocer.one/
+${LoginPageURL}        https://www.quatrogrocer.one/login
+${SignUpPageURL}       https://www.quatrogrocer.one/signup
 
 *** Keywords ***
-Clear Input Field
-    [Arguments]    @{inputField}
-    Press Keys     ${inputField}    CTRL+a+BACKSPACE
-
-Open Application
-    Open Browser    ${ApplicationURL}    ${Browser}
-    # Title Should Be    ${ApplicationTitle}
-    Maximize Browser Window
-
-Close Application
-    Close Browser
-
-Clear Input Field
-    [Arguments]    @{inputField}
-    Press Keys    ${inputField}    CTRL+a+BACKSPACE
-
-    Wait Until Location Is    ${LoginPageURL}    20
-    Wait Until Page Contains Element    ${loginForm}    20
-    Wait Until Element Is Visible    ${signUpLink}    20
-    Click Element    ${signUpLink}
-
-    Wait Until Location Is    ${SignUpPageURL}    20
-    Wait Until Page Contains Element    ${signUpForm}    20
-    Wait Until Element Is Visible    ${signUpForm}    20
-    Element Should Be Disabled    ${signUpButton}
-
-Fill Up Sign Up Form
-    Click Element    ${inputFirstName}
-    Input Text    ${inputFirstName}    John
-
-    Click Element    ${inputLastName}
-    Input Text    ${inputLastName}    Doe
-
-    Click Element    ${inputGender}
-    Wait Until Element Is Visible    ${genderList}    20
-    # For Loop to Verify Gender Value
-    FOR    ${gender}    IN    @{genderSelections}
-        Page Should Contain Element    //li[@data-value='${gender}']
-    END
-    Click Element    ${selectMale}
-
-    Click Element    ${inputDoB}
-    Input Text    ${inputDoB}    04112000
-
-    Click Element    ${inputEmail}
-    # Input Text    ${inputEmail}    
-
-    Click Element    ${inputPassword}
-    # Input Text    ${inputPassword}    
-    
-
 Verify Page Contains
     Title Should Be    QuatroGrocer Shopping App
     Wait Until Element Is Visible    //*[@class="home-header-content"]//button
@@ -126,7 +75,3 @@ User Enter Valid Email Address & Correct Password
     Input Text    //*[@type='password']    Abc123456!
     Click Element    //button[@class='signup-login-btn'] 
     Sleep    2
-
-
-
-    Click Element    ${signUpButton}
