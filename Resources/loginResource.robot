@@ -50,7 +50,7 @@ Direct to Login Page
 
 Verify Login Page
     Wait Until Location Is              ${LoginPageURL}    40
-    Page Should Contain Element         ${loginForm}    40
+    Page Should Contain Element         ${loginForm}    
     Wait Until Page Contains Element    ${loginForm}    40
     Wait Until Element Is Visible       ${loginForm}    40
     Element Should Be Disabled          ${loginButton}
@@ -58,10 +58,10 @@ Verify Login Page
 Verify Login Fail - Invalid Email Format
     # First Invalid Email Format
     Click Element    ${inputEmail}
-    Input Text    ${inputEmail}    jonygmail.com
+    Input Text    ${inputEmail}    email
 
     Click Element    ${inputPassword}
-    Input Text    ${inputPassword}    Test@1234
+    Input Text    ${inputPassword}    password
 
     Element Should Be Enabled    ${loginButton}
     Click Element    ${loginButton}
@@ -75,7 +75,7 @@ Verify Login Fail - Invalid Email Format
     Click Element    ${inputEmail}
     Clear Input Field    ${inputEmail}
     # Second Invalid Email Format
-    Input Text    ${inputEmail}    jonyj@.com
+    Input Text    ${inputEmail}    email
 
     Element Should Be Enabled    ${loginButton}
     Click Element    ${loginButton}
@@ -91,10 +91,10 @@ Verify Login Fail - Invalid Email Format
 Verify Login Fail - Unregistered Email
     # Unregistered Email 
     Click Element    ${inputEmail}
-    Input Text    ${inputEmail}    shawn1234321@gmail.com
+    Input Text    ${inputEmail}    email
     
     Click Element    ${inputPassword}
-    Input Text    ${inputPassword}    Test@1234
+    Input Text    ${inputPassword}    password
 
     Element Should Be Enabled    ${loginButton}
     Click Element    ${loginButton}
@@ -109,10 +109,10 @@ Verify Login Fail - Unregistered Email
 Verify Login Fail - Wrong Password
     # Registered Email 
     Click Element    ${inputEmail}
-    Input Text    ${inputEmail}    jonyj@gmail.com
+    Input Text    ${inputEmail}    email
     # Wrong Password
     Click Element    ${inputPassword}
-    Input Text    ${inputPassword}    Test212311234
+    Input Text    ${inputPassword}    password
 
     Element Should Be Enabled    ${loginButton}
     Click Element    ${loginButton}
@@ -127,10 +127,10 @@ Verify Login Fail - Wrong Password
 Login With Registered Email And Password
     # Registered Email 
     Click Element    ${inputEmail}
-    Input Text    ${inputEmail}    jonyj@gmail.com
+    Input Text    ${inputEmail}    email
     # Registered Password
     Click Element    ${inputPassword}
-    Input Text    ${inputPassword}    Test@1234
+    Input Text    ${inputPassword}    password
     Click Element    ${maskedIcon}
     Page Should Contain Element    ${unmaskedPassword}
     Click Element    ${maskedIcon}

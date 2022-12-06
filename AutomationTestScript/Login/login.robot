@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation      A test Case For Ivalid And Valid Login
+Documentation      A Test Case For Ivalid And Valid Login
 Resource           ../../Resources/loginResource.robot
 
 # Execute Before Test Case
