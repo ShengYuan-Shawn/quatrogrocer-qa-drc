@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221206 08:52:45.665" rpa="false" schemaversion="3">
+<suite id="s1" name="Login" source="/home/lim/quatrogrocer-qa-drc/AutomationTestScript/Login/login.robot">
+<test id="s1-t1" name="Open Quatro Grocer Shopping App &amp; Login Existing Account" line="11">
+<kw name="Open Application" library="loginResource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ApplicationURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221206 08:52:45.752" level="INFO">Opening browser 'Chrome' to base url 'https://www.quatrogrocer.one/'.</msg>
+<status status="PASS" starttime="20221206 08:52:45.752" endtime="20221206 08:52:46.856"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${ApplicationTitle}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221206 08:52:46.860" level="INFO">Page title is 'QuatroGrocer Shopping App'.</msg>
+<status status="PASS" starttime="20221206 08:52:46.856" endtime="20221206 08:52:46.860"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221206 08:52:46.861" endtime="20221206 08:52:46.963"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:45.752" endtime="20221206 08:52:46.963"/>
+</kw>
+<kw name="Direct to Login Page" library="loginResource">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 08:52:46.964" endtime="20221206 08:52:46.973"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 08:52:46.973" endtime="20221206 08:52:46.988"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:46.990" level="INFO">Clicking element '//*[@data-testid='AccountCircleOutlinedIcon']'.</msg>
+<status status="PASS" starttime="20221206 08:52:46.989" endtime="20221206 08:52:47.056"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:46.964" endtime="20221206 08:52:47.056"/>
+</kw>
+<kw name="Verify Login Page" library="loginResource">
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>${LoginPageURL}</arg>
+<arg>40</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20221206 08:52:47.057" endtime="20221206 08:52:47.067"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${loginForm}</arg>
+<arg>40</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221206 08:52:47.078" level="INFO">Current page contains element '//div[@class='login-container-content']'.</msg>
+<status status="PASS" starttime="20221206 08:52:47.067" endtime="20221206 08:52:47.078"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${loginForm}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 08:52:47.078" endtime="20221206 08:52:47.087"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${loginForm}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 08:52:47.088" endtime="20221206 08:52:47.111"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" starttime="20221206 08:52:47.111" endtime="20221206 08:52:47.131"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:47.056" endtime="20221206 08:52:47.131"/>
+</kw>
+<kw name="Verify Login Fail - Invalid Email Format" library="loginResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:47.132" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:47.132" endtime="20221206 08:52:47.172"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<arg>jonygmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:47.173" level="INFO">Typing text 'jonygmail.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:47.173" endtime="20221206 08:52:47.260"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:47.262" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:47.261" endtime="20221206 08:52:47.301"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>Test@1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:47.301" level="INFO">Typing text 'Test@1234' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:47.301" endtime="20221206 08:52:47.358"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221206 08:52:47.358" endtime="20221206 08:52:47.382"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:47.382" level="INFO">Clicking element '//button[@class='login-btn']'.</msg>
+<status status="PASS" starttime="20221206 08:52:47.382" endtime="20221206 08:52:47.414"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221206 08:52:48.414" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221206 08:52:47.414" endtime="20221206 08:52:48.414"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css:input[type=email]:invalid</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 08:52:48.415" endtime="20221206 08:52:48.456"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${error}</var>
+<arg>return ["missing an '@'","'.' is used at a wrong position in"].some(e=&gt;document.querySelector('input[type=email]:invalid')?.validationMessage.includes(e))</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20221206 08:52:48.456" level="INFO">Executing JavaScript:
+return ["missing an '@'","'.' is used at a wrong position in"].some(e=&gt;document.querySelector('input[type=email]:invalid')?.validationMessage.includes(e))
+Without any arguments.</msg>
+<msg timestamp="20221206 08:52:48.463" level="INFO">${error} = True</msg>
+<status status="PASS" starttime="20221206 08:52:48.456" endtime="20221206 08:52:48.463"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${error}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221206 08:52:48.463" endtime="20221206 08:52:48.463"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:48.464" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:48.463" endtime="20221206 08:52:48.485"/>
+</kw>
+<kw name="Clear Input Field" library="loginResource">
+<arg>${inputEmail}</arg>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${inputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 08:52:48.486" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to ["//input[@type='email']"] element.</msg>
+<msg timestamp="20221206 08:52:48.766" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 08:52:48.766" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 08:52:48.766" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 08:52:48.766" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 08:52:48.766" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 08:52:48.486" endtime="20221206 08:52:48.789"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:48.486" endtime="20221206 08:52:48.789"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<arg>jonyj@.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:48.790" level="INFO">Typing text 'jonyj@.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:48.789" endtime="20221206 08:52:48.908"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221206 08:52:48.909" endtime="20221206 08:52:48.927"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:48.928" level="INFO">Clicking element '//button[@class='login-btn']'.</msg>
+<status status="PASS" starttime="20221206 08:52:48.928" endtime="20221206 08:52:48.953"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221206 08:52:49.953" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221206 08:52:48.953" endtime="20221206 08:52:49.953"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css:input[type=email]:invalid</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 08:52:49.953" endtime="20221206 08:52:49.982"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${error}</var>
+<arg>return ["missing an '@'","'.' is used at a wrong position in"].some(e=&gt;document.querySelector('input[type=email]:invalid')?.validationMessage.includes(e))</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20221206 08:52:49.983" level="INFO">Executing JavaScript:
+return ["missing an '@'","'.' is used at a wrong position in"].some(e=&gt;document.querySelector('input[type=email]:invalid')?.validationMessage.includes(e))
+Without any arguments.</msg>
+<msg timestamp="20221206 08:52:49.988" level="INFO">${error} = True</msg>
+<status status="PASS" starttime="20221206 08:52:49.982" endtime="20221206 08:52:49.988"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${error}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221206 08:52:49.989" endtime="20221206 08:52:49.989"/>
+</kw>
+<kw name="Clear Login Form" library="loginResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:49.990" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:49.989" endtime="20221206 08:52:50.021"/>
+</kw>
+<kw name="Clear Input Field" library="loginResource">
+<arg>${inputEmail}</arg>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${inputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 08:52:50.022" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to ["//input[@type='email']"] element.</msg>
+<msg timestamp="20221206 08:52:50.301" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 08:52:50.301" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 08:52:50.301" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 08:52:50.301" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 08:52:50.301" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 08:52:50.022" endtime="20221206 08:52:50.332"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:50.021" endtime="20221206 08:52:50.332"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:50.333" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:50.332" endtime="20221206 08:52:50.363"/>
+</kw>
+<kw name="Clear Input Field" library="loginResource">
+<arg>${inputPassword}</arg>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${inputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 08:52:50.364" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to ["//input[@type='password']"] element.</msg>
+<msg timestamp="20221206 08:52:50.647" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 08:52:50.647" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 08:52:50.647" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 08:52:50.647" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 08:52:50.647" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 08:52:50.363" endtime="20221206 08:52:50.664"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:50.363" endtime="20221206 08:52:50.664"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" starttime="20221206 08:52:50.664" endtime="20221206 08:52:50.676"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:49.989" endtime="20221206 08:52:50.676"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:47.132" endtime="20221206 08:52:50.676"/>
+</kw>
+<kw name="Verify Login Fail - Unregistered Email" library="loginResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:50.677" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:50.677" endtime="20221206 08:52:50.706"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<arg>shawn1234321@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:50.706" level="INFO">Typing text 'shawn1234321@gmail.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:50.706" endtime="20221206 08:52:50.755"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:50.755" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:50.755" endtime="20221206 08:52:50.780"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>Test@1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:50.781" level="INFO">Typing text 'Test@1234' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:50.780" endtime="20221206 08:52:50.813"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221206 08:52:50.813" endtime="20221206 08:52:50.826"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:50.827" level="INFO">Clicking element '//button[@class='login-btn']'.</msg>
+<status status="PASS" starttime="20221206 08:52:50.827" endtime="20221206 08:52:50.847"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221206 08:52:51.847" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221206 08:52:50.847" endtime="20221206 08:52:51.847"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${errorMessage}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 08:52:51.848" endtime="20221206 08:52:51.863"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${errorMessage}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 08:52:51.863" endtime="20221206 08:52:51.883"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${errorMessage}</arg>
+<arg>40</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221206 08:52:51.897" level="INFO">Element '//p[@class='errmsg']' is displayed.</msg>
+<status status="PASS" starttime="20221206 08:52:51.883" endtime="20221206 08:52:51.897"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${nonExistEmailErrorMessage}</var>
+<arg>${errorMessage}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:51.911" level="INFO">${nonExistEmailErrorMessage} = Email does not exist</msg>
+<status status="PASS" starttime="20221206 08:52:51.897" endtime="20221206 08:52:51.911"/>
+</kw>
+<kw name="Clear Login Form" library="loginResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:51.911" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:51.911" endtime="20221206 08:52:51.932"/>
+</kw>
+<kw name="Clear Input Field" library="loginResource">
+<arg>${inputEmail}</arg>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${inputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 08:52:51.933" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to ["//input[@type='email']"] element.</msg>
+<msg timestamp="20221206 08:52:52.197" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 08:52:52.197" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 08:52:52.197" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 08:52:52.197" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 08:52:52.197" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 08:52:51.933" endtime="20221206 08:52:52.214"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:51.933" endtime="20221206 08:52:52.214"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:52.215" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:52.215" endtime="20221206 08:52:52.265"/>
+</kw>
+<kw name="Clear Input Field" library="loginResource">
+<arg>${inputPassword}</arg>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${inputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 08:52:52.265" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to ["//input[@type='password']"] element.</msg>
+<msg timestamp="20221206 08:52:52.543" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 08:52:52.543" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 08:52:52.543" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 08:52:52.543" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 08:52:52.543" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 08:52:52.265" endtime="20221206 08:52:52.559"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:52.265" endtime="20221206 08:52:52.560"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" starttime="20221206 08:52:52.560" endtime="20221206 08:52:52.576"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:51.911" endtime="20221206 08:52:52.576"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:50.676" endtime="20221206 08:52:52.576"/>
+</kw>
+<kw name="Verify Login Fail - Wrong Password" library="loginResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:52.578" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:52.577" endtime="20221206 08:52:52.613"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<arg>jonyj@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:52.613" level="INFO">Typing text 'jonyj@gmail.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:52.613" endtime="20221206 08:52:52.660"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:52.661" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:52.660" endtime="20221206 08:52:52.684"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>Test212311234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:52.684" level="INFO">Typing text 'Test212311234' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:52.684" endtime="20221206 08:52:52.728"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221206 08:52:52.728" endtime="20221206 08:52:52.742"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:52.742" level="INFO">Clicking element '//button[@class='login-btn']'.</msg>
+<status status="PASS" starttime="20221206 08:52:52.742" endtime="20221206 08:52:52.759"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221206 08:52:53.759" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221206 08:52:52.759" endtime="20221206 08:52:53.759"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${errorMessage}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221206 08:52:53.760" endtime="20221206 08:52:53.772"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${errorMessage}</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221206 08:52:53.773" endtime="20221206 08:52:53.789"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${errorMessage}</arg>
+<arg>40</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221206 08:52:53.798" level="INFO">Element '//p[@class='errmsg']' is displayed.</msg>
+<status status="PASS" starttime="20221206 08:52:53.789" endtime="20221206 08:52:53.798"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${nonExistEmailErrorMessage}</var>
+<arg>${errorMessage}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:53.810" level="INFO">${nonExistEmailErrorMessage} = Incorrect Password</msg>
+<status status="PASS" starttime="20221206 08:52:53.798" endtime="20221206 08:52:53.810"/>
+</kw>
+<kw name="Clear Login Form" library="loginResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:53.810" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:53.810" endtime="20221206 08:52:53.831"/>
+</kw>
+<kw name="Clear Input Field" library="loginResource">
+<arg>${inputEmail}</arg>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${inputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 08:52:53.832" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to ["//input[@type='email']"] element.</msg>
+<msg timestamp="20221206 08:52:54.097" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 08:52:54.097" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 08:52:54.098" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 08:52:54.098" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 08:52:54.098" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 08:52:53.832" endtime="20221206 08:52:54.114"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:53.831" endtime="20221206 08:52:54.114"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.115" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.114" endtime="20221206 08:52:54.159"/>
+</kw>
+<kw name="Clear Input Field" library="loginResource">
+<arg>${inputPassword}</arg>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${inputField}</arg>
+<arg>CTRL+a+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20221206 08:52:54.160" level="INFO">Sending key(s) ('CTRL+a+BACKSPACE',) to ["//input[@type='password']"] element.</msg>
+<msg timestamp="20221206 08:52:54.423" level="INFO">Pressing special key CONTROL down.</msg>
+<msg timestamp="20221206 08:52:54.423" level="INFO">Sending key a</msg>
+<msg timestamp="20221206 08:52:54.423" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg timestamp="20221206 08:52:54.424" level="INFO">Releasing special key CONTROL.</msg>
+<msg timestamp="20221206 08:52:54.424" level="INFO">Releasing special key BACKSPACE.</msg>
+<status status="PASS" starttime="20221206 08:52:54.159" endtime="20221206 08:52:54.444"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:54.159" endtime="20221206 08:52:54.444"/>
+</kw>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" starttime="20221206 08:52:54.444" endtime="20221206 08:52:54.465"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:53.810" endtime="20221206 08:52:54.465"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:52.577" endtime="20221206 08:52:54.466"/>
+</kw>
+<kw name="Login With Registered Email And Password" library="loginResource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.467" level="INFO">Clicking element '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.466" endtime="20221206 08:52:54.495"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputEmail}</arg>
+<arg>jonyj@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.495" level="INFO">Typing text 'jonyj@gmail.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.495" endtime="20221206 08:52:54.541"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.541" level="INFO">Clicking element '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.541" endtime="20221206 08:52:54.564"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${inputPassword}</arg>
+<arg>Test@1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.565" level="INFO">Typing text 'Test@1234' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.564" endtime="20221206 08:52:54.598"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${maskedIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.599" level="INFO">Clicking element '//*[@class='MuiSvgIcon-root']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.598" endtime="20221206 08:52:54.631"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${unmaskedPassword}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221206 08:52:54.643" level="INFO">Current page contains element '//input[@type='text' and @placeholder='Password']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.632" endtime="20221206 08:52:54.643"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${maskedIcon}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.644" level="INFO">Clicking element '//*[@class='MuiSvgIcon-root']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.643" endtime="20221206 08:52:54.674"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221206 08:52:54.675" endtime="20221206 08:52:54.691"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221206 08:52:54.691" level="INFO">Clicking element '//button[@class='login-btn']'.</msg>
+<status status="PASS" starttime="20221206 08:52:54.691" endtime="20221206 08:52:54.710"/>
+</kw>
+<kw name="Wait Until Location Is Not" library="SeleniumLibrary">
+<arg>${LoginPageURL}</arg>
+<doc>Waits until the current URL is not ``location``.</doc>
+<status status="PASS" starttime="20221206 08:52:54.711" endtime="20221206 08:52:54.919"/>
+</kw>
+<kw name="Wait Until Location Is" library="SeleniumLibrary">
+<arg>${ProfilePageURL}</arg>
+<doc>Waits until the current URL is ``expected``.</doc>
+<status status="PASS" starttime="20221206 08:52:54.919" endtime="20221206 08:52:54.928"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:54.466" endtime="20221206 08:52:54.928"/>
+</kw>
+<kw name="Close Application" library="loginResource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221206 08:52:54.928" endtime="20221206 08:52:54.995"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:54.928" endtime="20221206 08:52:54.996"/>
+</kw>
+<status status="PASS" starttime="20221206 08:52:45.751" endtime="20221206 08:52:54.996"/>
+</test>
+<doc>A test suite for invalid and valid login</doc>
+<status status="PASS" starttime="20221206 08:52:45.666" endtime="20221206 08:52:54.996"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Login">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
