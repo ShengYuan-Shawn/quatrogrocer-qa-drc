@@ -17,7 +17,7 @@ Login Existing Account & Made First Purchase
     purchaseProduct.Select Product
     purchaseProduct.Verify Product And Add To Cart
     purchaseProduct.Go To Checkout Cart
-    # purchaseProduct.Redirect To Add Address Page
-    # purchaseProduct.Adding New Address
+    purchaseProduct.Redirect To Add Address Page
+    purchaseProduct.Adding New Address
     purchaseProduct.Product Checkout
     purchaseProduct.Redirect To Payment Success Page
