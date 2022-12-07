@@ -60,6 +60,10 @@ ${addressDropdown}        //div[@id='demo-simple-select']
 ${addressSelection}       //*[@data-value='33']
 ${placeOrderButton}       //button[@type='submit']
 
+# Declaring Payment Success Variables
+${orderSummaryContent}     //div[@class='payment-success-container']
+${returnAccountDetails}    //div[@class='return']
+
 *** Keywords ***
 Clear Input Field
     [Arguments]    @{inputField}
@@ -74,15 +78,15 @@ Close Application
     Close Browser
 
 Direct to Login Page
-    Wait Until Page Contains Element    ${profileIcon}    40
-    Wait Until Element Is Visible       ${profileIcon}    40
+    Wait Until Page Contains Element    ${profileIcon}    60
+    Wait Until Element Is Visible       ${profileIcon}    60
     Click Element                       ${profileIcon}    
 
 Verify Login Page
-    Wait Until Location Is              ${LoginPageURL}    40
+    Wait Until Location Is              ${LoginPageURL}    60
     Page Should Contain Element         ${loginForm}    
-    Wait Until Page Contains Element    ${loginForm}    40
-    Wait Until Element Is Visible       ${loginForm}    40
+    Wait Until Page Contains Element    ${loginForm}    60
+    Wait Until Element Is Visible       ${loginForm}    60
     Element Should Be Disabled          ${loginButton}
 
 Login With Registered Email And Password
@@ -93,48 +97,49 @@ Login With Registered Email And Password
     # Login Account
     Element Should Be Enabled    ${loginButton}
     Click Element    ${loginButton}
-    Wait Until Location Is Not    ${LoginPageURL}
-    Wait Until Location Is    ${ProfilePageURL}
+    Wait Until Location Is Not    ${LoginPageURL}    60
+    Wait Until Location Is    ${ProfilePageURL}    60
 
 Verify Profile Page
-    Wait Until Page Contains Element    ${profileContent}    40
+    Wait Until Page Contains Element    ${profileContent}    60
     Page Should Contain Element    ${profileContent}    
-    Wait Until Element Is Visible    ${profileContent}    40
+    Wait Until Element Is Visible    ${profileContent}    60
 
 Go To Marketplace
-    Wait Until Element Is Visible    ${marketplaceNav}    40
+    Wait Until Element Is Visible    ${marketplaceNav}    60
     Click Element    ${marketplaceNav}
     Location Should Be    ${MarketplaceURL}
-    Wait Until Page Contains Element    ${marketplaceContent}    40
+    Wait Until Page Contains Element    ${marketplaceContent}    60
     Page Should Contain Element     ${marketplaceContent}
-    Wait Until Element Is Visible    ${marketplaceContent}    40
+    Wait Until Element Is Visible    ${marketplaceContent}    60
     Element Should Be Visible    ${sideNav}
     Element Should Be Visible    ${carouselSlide}
     Element Should Be Visible    ${productPagination}
 
-# Select Product
-#     Element Should Be Visible    ${selectedProduct} 
-#     Click Element    ${selectedProduct} 
+Select Product
+    Wait Until Page Contains Element    ${selectedProduct}    60
+    Element Should Be Visible    ${selectedProduct}    60
+    Click Element    ${selectedProduct} 
      
-# Verify Product And Add To Cart
-#     Wait Until Page Contains Element    ${productContent}    40
-#     Page Should Contain Element    ${productContent}    
-#     Wait Until Element Is Visible    ${productContent}    40
-#     Click Element    ${addIcon}
-#     Click Element    ${addIcon}
-#     Sleep    1
-#     Click Element    ${minusIcon}
-#     Click Element    ${addToCartButton}
+Verify Product And Add To Cart
+    Wait Until Page Contains Element    ${productContent}    60
+    Page Should Contain Element    ${productContent}    
+    Wait Until Element Is Visible    ${productContent}    60
+    Click Element    ${addIcon}
+    Click Element    ${addIcon}
+    Sleep    1
+    Click Element    ${minusIcon}
+    Click Element    ${addToCartButton}
 
 Go To Checkout Cart
     Click Element    ${bagIcon}
-    Sleep    1
+    Sleep    8
 
 # Redirect To Add Address Page
 #     Location Should Be    ${AddAddressURL}
-#     Wait Until Page Contains Element    ${addShippingAddContent}    40
+#     Wait Until Page Contains Element    ${addShippingAddContent}    60
 #     Page Should Contain Element    ${addShippingAddContent}    
-#     Wait Until Element Is Visible    ${addShippingAddContent}    40
+#     Wait Until Element Is Visible    ${addShippingAddContent}    60
     
 # Adding New Address
 #     Page Should Contain Element    ${addAddressform}    
@@ -159,23 +164,32 @@ Go To Checkout Cart
 #     Handle Alert    Accept
 
 Product Checkout
+    Wait Until Page Contains Element    ${shipmentDetails}    60
+    Page Should Contain Element    ${shipmentDetails}    
+    Wait Until Element Is Visible    ${shipmentDetails}    60
+
+    Wait Until Page Contains Element    ${orderDetails}    60
+    Page Should Contain Element    ${orderDetails}    
+    Wait Until Element Is Visible    ${orderDetails}    60
+
     Element Should Be Disabled    ${placeOrderButton}
 
-    Wait Until Page Contains Element    ${shipmentDetails}    40
-    Page Should Contain Element    ${shipmentDetails}    
-    Wait Until Element Is Visible    ${shipmentDetails}    40
-
-    Wait Until Page Contains Element    ${orderDetails}    40
-    Page Should Contain Element    ${orderDetails}    
-    Wait Until Element Is Visible    ${orderDetails}    40
-
     Click Element    ${addressDropdown}
-    Wait Until Element Is Visible    ${addressSelection}    40
+    Sleep    2
+    Wait Until Page Contains Element    ${addressSelection}    60
+    Wait Until Element Is Visible    ${addressSelection}    60
     Click Element    ${addressSelection}
     
     Element Should Be Enabled    ${placeOrderButton}
 
-    Execute Javascript
+    Execute Javascript    document.querySelector('div.order-submit button').scrollIntoView()
     Click Element    ${placeOrderButton}
 
 Redirect To Payment Success Page
+    Wait Until Page Contains Element    ${orderSummaryContent}    60
+    Page Should Contain Element    ${orderSummaryContent}    
+    Wait Until Element Is Visible    ${orderSummaryContent}    60
+
+    Wait Until Page Contains Element    ${returnAccountDetails}    60
+    Wait Until Element Is Visible    ${returnAccountDetails}    60
+    Click Element    ${returnAccountDetails}
