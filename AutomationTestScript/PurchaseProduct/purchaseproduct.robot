@@ -14,8 +14,8 @@ Login Existing Account & Made First Purchase
     purchaseProduct.Login With Registered Email And Password
     purchaseProduct.Verify Profile Page
     purchaseProduct.Go To Marketplace
-    # purchaseProduct.Select Product
-    # purchaseProduct.Verify Product And Add To Cart
+    purchaseProduct.Select Product
+    purchaseProduct.Verify Product And Add To Cart
     purchaseProduct.Go To Checkout Cart
     # purchaseProduct.Redirect To Add Address Page
     # purchaseProduct.Adding New Address
